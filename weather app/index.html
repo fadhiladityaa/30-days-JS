@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- external link -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- end external link -->
+</head>
+<body class="bg-slate-900 flex justify-center">
+    
+    <div class="container pb-5 mt-32 p-3 w-64 bg-gradient-to-tr from-blue-400 to-green-200 flex flex-col justify-center items-center rounded-lg">
+        <div class="search-bar mt-3">
+            <form class="flex" action="">
+                <input id="city" placeholder="Masukkan nama kota" class="w-full pb-1 focus:ring-1 placeholder:italic placeholder:text-slate-400 placeholder:text-sm pl-4 mr-2 rounded-full focus:outline-none focus:border-pink-400 focus:ring-pink-400" type="text" name="city">
+                <button onclick="halo()" type="submit" class="rounded-full bg-white p-2"><img class="w-3 h-3" src="img/search.png" alt=""></i></button>
+            </form>
+        </div> 
+
+        <div class="info flex flex-col items-center">
+            <img id="cuaca" class="w-40 h-40" src="img/clouds.png" alt="weather">
+            <h1 id="suhu" class="text-5xl font-semibold text-white">7°c</h1>
+            <p id="kota" class="text-2xl text-white font-mono mt-3">Malili</p>
+        </div>
+
+        <div class="footer flex text-white font-thin mt-5 justify-evenly text-sm">
+            <div class="humidity flex items-center mr-3">
+                <img class="w-4 h-4 mr-1" src="img/humidity.png" alt="kelembaban">
+                <div class="flex flex-col m-0 leading-4">
+                    <span  id="persent">64%</span>
+                    <span  id="kelembaban">Humidity</span>
+                </div>
+            </div>
+
+            <div class="windSpeed flex items-center ml-2">
+                <img class="w-6 h-6 mr-1" src="img/wind.png" alt="kelembaban">
+                <div class="flex flex-col m-0 leading-4">
+                    <span id="persent">10.2 km/h</span>
+                    <span id="kelembaban">Wind Speed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+      </script>
+
+      <script src="script.js"></script>
+</body>
+</html>
