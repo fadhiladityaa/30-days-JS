@@ -13,23 +13,23 @@
     
     <div class="container pb-5 mt-32 p-3 w-64 bg-gradient-to-tr from-blue-400 to-green-200 flex flex-col justify-center items-center rounded-lg">
         <div class="search-bar mt-3">
-            <form class="flex" action="">
+            <form class="flex" action="" autocomplete="off">
                 <input id="city" placeholder="Masukkan nama kota" class="w-full pb-1 focus:ring-1 placeholder:italic placeholder:text-slate-400 placeholder:text-sm pl-4 mr-2 rounded-full focus:outline-none focus:border-pink-400 focus:ring-pink-400" type="text" name="city">
                 <button onclick="halo()" type="submit" class="rounded-full bg-white p-2"><img class="w-3 h-3" src="img/search.png" alt=""></i></button>
             </form>
         </div> 
 
         <div class="info flex flex-col items-center">
-            <img id="cuaca" class="w-40 h-40" src="img/clouds.png" alt="weather">
-            <h1 id="suhu" class="text-5xl font-semibold text-white">7°c</h1>
-            <p id="kota" class="text-2xl text-white font-mono mt-3">Malili</p>
-        </div>
+            <img id="cuaca" class="w-32 h-32" src="img/clouds.png" alt="weather">
+            <span id="desc" class="text-white font-semibold font-mono mb-3 text-xl">Cuaca</span>
+            <h1 id="suhu" class="text-5xl font-semibold text-white">0°c</h1>
+            <p id="kota" class="text-2xl text-white font-mono mt-3">Kota</p>
 
         <div class="footer flex text-white font-thin mt-5 justify-evenly text-sm">
             <div class="humidity flex items-center mr-3">
                 <img class="w-4 h-4 mr-1" src="img/humidity.png" alt="kelembaban">
                 <div class="flex flex-col m-0 leading-4">
-                    <span  id="persent">64%</span>
+                    <span  id="persent">0%</span>
                     <span  id="kelembaban">Humidity</span>
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="windSpeed flex items-center ml-2">
                 <img class="w-6 h-6 mr-1" src="img/wind.png" alt="kelembaban">
                 <div class="flex flex-col m-0 leading-4">
-                    <span id="persent">10.2 km/h</span>
+                    <span id="speed">0 km/h</span>
                     <span id="kelembaban">Wind Speed</span>
                 </div>
             </div>
