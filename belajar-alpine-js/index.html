@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <title>Belajar alpinejs</title>
+</head>
+<body>
+    
+    <!-- <div x-data class="container">
+        <ul>
+            <template x-for="nm in $store.mahasiswa.nama">
+                <li x-text="nm"></li>
+            </template>
+        </ul>
+
+        <button x-data @click="alert(`halo nama saya ${$store.mahasiswa.nama[0]}`)"> click Me!</button>
+    </div> -->
+
+
+    <!-- <div class="container mx-auto w-1/2 bg-indigo-100 mt-10 text-center p-10 rounded-xl shadow border border-sky-300">
+        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent drop-shadow-sm">
+            Halo, <span x-data x-text="$store.mahasiswa.angka"></span> adalah bilangan: <span x-data x-text="$store.mahasiswa.angka % 2 == 0 ? 'genap' : 'ganjil'"></span>
+        </h1>
+    </div> -->
+
+
+    <div x-data="{open : false}" class="container mx-auto w-1/2 bg-indigo-100 mt-10 text-center p-10 rounded-xl shadow border border-sky-300">
+        <div class="btn">
+            <button @click="open = !open" x-text="open ? 'Tutup' : 'Buka'"  class="mx-auto w-24 h-8 flex justify-center items-center rounded-md text-white bg-slate-500"></button>
+        </div>
+
+        <div x-show="open" x-transition.duration.500ms class="info bg-purple-400 mt-3 p-3 rounded-md">
+            <span class="font-bold text-white">Lorem ipsum dolor sit amet.</span>
+        </div>
+    </div>
+
+    <!-- <script>
+        document.addEventListener('alpine:init', ()=> {
+            Alpine.store('mahasiswa', {
+                nama : ['Fadhil', 'Reza', 'Achmad'],
+                buka : false
+            })
+        })
+    </script> -->
+</body>
+</html>
