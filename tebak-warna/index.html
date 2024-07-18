@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest The Color</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .title {
+                @apply text-6xl font-bold text-center mt-3 bg-gradient-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent
+            }
+
+            .container-card {
+                @apply grid grid-cols-2 gap-2 content-center md:grid-cols-4 md:gap-4 md:p-4
+            }
+
+            .card {
+                @apply aspect-[4/3] rounded-lg bg-pink-400 hover:scale-95 transition-all duration-500 cursor-pointer
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" x-data="{cards : [{satu: 'red'}, {dua: 'blue'}]}">
+        <h1 class="title">Tebak Warna</h1>
+
+        <div class="container-card">
+            <template x-for="card in cards">
+                <div class="card"></div>
+            </template>
+        </div>
+    </div>
+
+</body>
+</html>
