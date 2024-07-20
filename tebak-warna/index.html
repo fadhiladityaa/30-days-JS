@@ -24,15 +24,34 @@
 </head>
 <body>
 
-    <div class="container" x-data="{cards : [{satu: 'red'}, {dua: 'blue'}]}">
+    <div class="container" x-data="game()">
         <h1 class="title">Tebak Warna</h1>
 
         <div class="container-card">
             <template x-for="card in cards">
-                <div class="card"></div>
+                <div class="card" @click="flip(card)"  :class="(card.open ? 'bg-' + card.color + '-500' : 'bg-gray-500')"></div>
             </template>
         </div>
     </div>
 
+
+    <script>
+        const game = () => {
+            return {
+                cards : [
+                    {color: 'red', open: false},
+                    {color: 'blue', open: false},
+                    {color: 'green', open: false},
+                    {color: 'yellow', open: false},
+                    {color: 'red', open: false},
+                    {color: 'blue', open: false},
+                    {color: 'green', open: false},
+                    {color: 'yellow', open: false}
+                ]    
+            }
+        }
+
+        const flip = (card) => card.open = !card.opens
+    </script>
 </body>
 </html>
