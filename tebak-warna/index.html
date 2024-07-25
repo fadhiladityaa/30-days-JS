@@ -3,55 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest The Color</title>
+    <title>tebak warna</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style type="text/tailwindcss">
         @layer components {
             .title {
-                @apply text-6xl font-bold text-center mt-3 bg-gradient-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent
+                @apply text-5xl font-bold text-center bg-gradient-to-r from-pink-500 to-sky-500 bg-clip-text text-transparent  mb-10
             }
 
-            .container-card {
-                @apply grid grid-cols-2 gap-2 content-center md:grid-cols-4 md:gap-4 md:p-4
+            .card-container {
+                @apply  grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4 content-center
             }
-
+            
             .card {
-                @apply aspect-[4/3] rounded-lg bg-pink-400 hover:scale-95 transition-all duration-500 cursor-pointer
+                @apply  aspect-[4/3] bg-gray-500 rounded-md hover:scale-95 transition-all 
             }
         }
     </style>
 </head>
+
 <body>
+    <div x-data="game()" class="p-10 mx-auto">
+        <h1 class="title" x-data="{title: 'Tebak Warna'}" x-text="title"></h1>
 
-    <div class="container" x-data="game()">
-        <h1 class="title">Tebak Warna</h1>
-
-        <div class="container-card">
+        <div class="card-container">
             <template x-for="card in cards">
-                <div class="card" @click="flip(card)"  :class="(card.open ? 'bg-' + card.color + '-500' : 'bg-gray-500')"></div>
+                <div class="aspect-[4/3]">
+                    <div class="card" x-show="!card.cleared" @click="flip(card)" :class="(card.open ? 'bg-' + card.color + '-500' : 'bg-gray-500')"></div>
+                </div>
             </template>
+        </div>
+
         </div>
     </div>
 
-
     <script>
-        const game = () => {
+       const game = () => {
             return {
                 cards : [
-                    {color: 'red', open: false},
-                    {color: 'blue', open: false},
-                    {color: 'green', open: false},
-                    {color: 'yellow', open: false},
-                    {color: 'red', open: false},
-                    {color: 'blue', open: false},
-                    {color: 'green', open: false},
-                    {color: 'yellow', open: false}
-                ]    
-            }
-        }
+                    {color: 'green', open : false, cleared: false},
+                    {color: 'red', open : false, cleared: false},
+                    {color: 'blue', open : false, cleared: false},
+                    {color: 'yellow', open : false, cleared: false},
+                    {color: 'green', open : false, cleared: false},
+                    {color: 'red', open : false, cleared: false},
+                    {color: 'blue', open : false, cleared: false},
+                    {color: 'yellow', open : false, cleared: false}
+                ],
+                get flippedCards() {
+                    return this.cards.filter((card) => card.open)
+                },
+                flip(card) {
+                    // mengubah warna kartu yang diclick
+                    card.open = !card.open
 
-        const flip = (card) => card.open = !card.opens
+                    // cek apakah ada 2 kartu yang terbuka dan apakah warnanya sama?
+                    if(this.flippedCards.length === 2) {
+                        if(this.flippedCards[0].color === this.flippedCards[1].color){
+                            // menghilangkan kartu dengan warna yang sama
+                            setTimeout(() => {
+                                this.flippedCards.forEach((flipped) => flipped.cleared = true)
+                            }, 500)
+
+                        }
+
+                            setTimeout(() => {
+                                this.flippedCards.forEach((flipped) => flipped.open = false)
+                            }, 500)
+                    }
+                }
+            }
+       }
     </script>
 </body>
 </html>
